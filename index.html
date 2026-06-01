@@ -198,12 +198,11 @@ panels.innerHTML = DATA.tabs.map((t,i)=>{
         </article>`).join('')}</div>
     </div>
 
+    ${t.top_videos.length === 0 ? '' : `
     <!-- 五、Top 15 跑量素材逐帧剖析 -->
     <div class="section">
       <div class="section-title"><h2><span class="section-num">五、</span>${t.name} Top 跑量素材逐帧剖析（最多 15 条）</h2><p>按消耗规模排序 · 同三级类目优先去重 · 自动抽取 6 个关键帧便于按段位拆解</p></div>
-      <div class="frame-cards">${t.top_videos.length === 0
-        ? `<div class="empty-tip">⚠️ 当前数据源未下发视频预览 URL，无法展示素材。</div>`
-        : t.top_videos.map((v,idx)=>`
+      <div class="frame-cards">${t.top_videos.map((v,idx)=>`
         <article class="frame-card">
           <div class="fc-header">
             <div class="fc-title">
@@ -231,7 +230,7 @@ panels.innerHTML = DATA.tabs.map((t,i)=>{
           </div>
           <div class="fc-learning"><b>Learning：</b>${v.learning.replace(/\n/g,'<br>')}</div>
         </article>`).join('')}</div>
-    </div>
+    </div>`}
 
   </section>`;
 }).join('');

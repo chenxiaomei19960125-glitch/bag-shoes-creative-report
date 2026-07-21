@@ -311,6 +311,14 @@ body{background:#f5f8fd !important;color:#1c2b45}
 .tag-table td.hi{color:#0052d9 !important}
 /* 维度卡片 */
 .dim-card{background:#fff !important;border:1px solid #e2eaf5 !important;box-shadow:0 4px 16px rgba(0,82,217,.05)}
+/* 三个核心标签：更深的腾讯蓝底色，强化优先级 */
+.dim-card.dim-p00{background:linear-gradient(145deg,#e7f0ff,#d8e8ff) !important;border:1px solid #7ab0ff !important;box-shadow:0 10px 28px rgba(0,82,217,.15) !important}
+.dim-card.dim-p00 .dim-head{border-bottom:1px solid #b8d4ff !important}
+.dim-card.dim-p00 .dim-icon{background:#0052d9 !important;color:#fff}
+.dim-card.dim-p00 h3{color:#003c9f !important}
+.dim-card.dim-p00 .dim-conclude{background:rgba(255,255,255,.72) !important;border-left-color:#0052d9 !important}
+.dim-card.dim-p00 .dim-basis{background:rgba(255,255,255,.72) !important;border-color:#9cc4ff !important}
+.dim-card.dim-p00 table{background:rgba(255,255,255,.78);border-radius:8px}
 .dim-card .dim-head{border-bottom:1px solid #eef2f8 !important}
 .dim-card .dim-icon{background:rgba(0,82,217,.08) !important}
 .dim-card h3{color:#1c2b45 !important}
@@ -485,7 +493,8 @@ function renderDimCard(dim){
   if(!dim) return '';
   const scope = DIM_SCOPE[dim.key] || 'all';
   const fw = DIM_FULLWIDTH.has(dim.key) ? ' style="grid-column:1/-1"' : '';
-  return '<div class="dim-card" data-dimkey="'+dim.key+'"'+fw+'>' +
+  const p00 = ['struct','role','scene'].includes(dim.key) ? ' dim-p00' : '';
+  return '<div class="dim-card'+p00+'" data-dimkey="'+dim.key+'"'+fw+'>' +
     '<div class="dim-head">' +
       '<span class="dim-icon">'+(DIM_ICON[dim.key]||'🏷')+'</span>' +
       '<div><h3>'+dim.title+(dim.p00?' <span style="font-size:11px;color:#0052d9;background:rgba(0,82,217,.08);padding:2px 7px;border-radius:6px;margin-left:4px">核心</span>':'')+'</h3></div>' +

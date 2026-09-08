@@ -933,13 +933,13 @@ function goldenRows(key){
     return '<tr>'
       + '<td class="g-rank">'+x.rank+'</td>'
       + '<td class="g-formula">'+formula+'</td>'
-      + '<td class="g-prompt">'+p5+'</td>'
       + '<td class="g-cases">'+cases+'</td>'
       + '<td class="g-aud">'+x.audience+'</td>'
       + '<td class="g-cat">'+x.cat+'</td>'
       + '<td class="g-kpi"><b>'+x.ctr+'%</b><span>CTR</span></td>'
       + '<td class="g-kpi"><b>'+x.v3+'%</b><span>3s完播</span></td>'
       + '<td class="g-url"><a href="'+x.url+'" target="_blank" rel="noopener">视频</a></td>'
+      + '<td class="g-prompt">'+p5+'</td>'
       + '</tr>';
   }).join('');
 }
@@ -961,9 +961,9 @@ function renderGolden(){
     + '可直接作为同类素材的拍摄/生成脚本参考。</div>'
     + '<div class="gd-scroll"><table class="golden-tb"><thead><tr>'
     + '<th>排名<small>按消耗</small></th><th>黄金公式<small>最多 3 个创意标签</small></th>'
-    + '<th>前 5 秒 Prompt<small>镜头 · 画面 · 字幕 · 节奏 · 作用</small></th>'
     + '<th>案例：前15秒关键帧与内容说明<small>开头 0-3s / 中间 3-9s / 结尾 9-15s</small></th>'
     + '<th>目标人群</th><th>适合品类</th><th>CTR</th><th>3s完播</th><th>素材</th>'
+    + '<th>前 5 秒 Prompt<small>镜头 · 画面 · 字幕 · 节奏 · 作用</small></th>'
     + '</tr></thead><tbody>'+goldenRows(GD_SCOPE)+'</tbody></table></div>';
   el.querySelectorAll('.gd-seg button').forEach(function(b){
     b.addEventListener('click', function(){ GD_SCOPE = b.dataset.gd; renderGolden(); });
